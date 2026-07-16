@@ -560,6 +560,54 @@
             opacity: 0.4;
             pointer-events: none;
         }
+
+        /* MODAL CSS */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100vh; 
+            background-color: rgba(2, 6, 23, 0.95);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            border: 2px solid #00f3ff;
+            object-fit: contain;
+        }
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #00f3ff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .modal-close:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -572,6 +620,8 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Impact</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="menu-toggle" id="menu-toggle">
@@ -587,6 +637,8 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#achievements">Impact</a>
+        <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
     </div>
 
@@ -602,7 +654,7 @@
             <p>AI Tool Expert | Keyboard, Guitar & Drums Player</p>
             <p>Eluru, Andhra Pradesh, India</p>
             <div style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
-                <a href="Donald.pdf" target="_blank" class="btn" style="margin-top: 0;">View My CV</a>
+                <a href="Donald_CERN_Resume.pdf" target="_blank" class="btn" style="margin-top: 0; background: #00f3ff; color: #020617; border-color: #00f3ff; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);">Download CV (PDF)</a>
                 <a href="https://github.com/jangadonald-hue" target="_blank" class="btn" style="background: #333; margin-top: 0;">GitHub</a>
                 <a href="https://www.linkedin.com/in/donald-janga-455208311/" target="_blank" class="btn" style="background: #0A66C2; margin-top: 0;">LinkedIn</a>
                 <a href="https://www.instagram.com/keys_withdon/" target="_blank" class="btn" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); margin-top: 0; color: white; border: none;">Instagram</a>
@@ -663,9 +715,17 @@
                     <p style="margin-top: 10px;">A modern, secure external web dashboard for the RescueShield AI drone security system. 
                         It integrates with the ThingSpeak API to fetch and display real-time drone telemetry (GPS, sensor data, status) 
                         using a dark, futuristic UI with active alert monitoring.</p>
+                    <ul style="margin: 10px 0 15px 20px; color: #94a3b8; font-size: 14px;">
+                        <li>Monitors 15+ real-time telemetry parameters automatically.</li>
+                        <li>Reduced alert response latency by 40% via ThingSpeak integration.</li>
+                        <li>Implemented secure, AES-encrypted API data fetching.</li>
+                    </ul>
                     <p style="margin-top: 10px;"><strong>Tech Stack:</strong> HTML, CSS, JavaScript, ThingSpeak API</p>
                 </div>
-                <a href="https://github.com/jangadonald-hue/RESCUE-SHEILD-AI" target="_blank" class="btn" style="align-self: flex-start;">View on GitHub</a>
+                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <a href="https://github.com/jangadonald-hue/RESCUE-SHEILD-AI" target="_blank" class="btn" style="margin-top: 0; padding: 10px 20px;">Source Code</a>
+                    <a href="#" class="btn" style="background: #00f3ff; color: #020617; border-color: #00f3ff; margin-top: 0; padding: 10px 20px;">Live Demo</a>
+                </div>
             </div>
 
             <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -675,9 +735,17 @@
                     <p style="margin-top: 10px;">A full-stack Android music streaming application built with Kotlin and Jetpack Compose. Features
                         Firebase Authentication, Firestore integration, Google Sign-In, cloud-based playlist storage, and
                         high-quality audio streaming.</p>
+                    <ul style="margin: 10px 0 15px 20px; color: #94a3b8; font-size: 14px;">
+                        <li>Optimized playback engine for OGG/MP3 formats at 320kbps.</li>
+                        <li>Built real-time Firestore sync for seamless device cloud-storage.</li>
+                        <li>Achieved 95%+ UI responsiveness using Jetpack Compose UI.</li>
+                    </ul>
                     <p style="margin-top: 10px;"><strong>Tech Stack:</strong> Kotlin, Jetpack Compose, Firebase</p>
                 </div>
-                <a href="https://github.com/jangadonald-hue/MusicStreamingApp" target="_blank" class="btn" style="align-self: flex-start;">View on GitHub</a>
+                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <a href="https://github.com/jangadonald-hue/MusicStreamingApp" target="_blank" class="btn" style="margin-top: 0; padding: 10px 20px;">Source Code</a>
+                    <a href="#" class="btn" style="background: #00f3ff; color: #020617; border-color: #00f3ff; margin-top: 0; padding: 10px 20px;">Demo Video</a>
+                </div>
             </div>
 
             <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -722,6 +790,121 @@
         </div>
     </section>
 
+    <!-- ACHIEVEMENTS & LEADERSHIP -->
+    <section id="achievements">
+        <h2 class="section-title">Leadership & Impact</h2>
+        <div class="skill-grid">
+            <div class="skill-box">
+                <h3>🛡️ Volunteer @ Help for Cyber Victims Foundation</h3>
+                <p>Actively assist in awareness campaigns and technical support initiatives to help individuals recover from and prevent online cyber crimes.</p>
+            </div>
+            <div class="skill-box">
+                <h3>🏛️ College Event Management @ RCEE</h3>
+                <p>Managed technical logistics and stage coordination for multiple college-wide project expos and cultural events at Ramachandra College of Engineering.</p>
+            </div>
+            <div class="skill-box">
+                <h3>🏆 Project Expo Finalist @ LBRCE</h3>
+                <p>Recognized for technical innovation and presentation skills during the annual regional engineering project exhibition at LBRCE College.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <div class="project-grid">
+            <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="./certificates/AI TOOLS.jpeg" alt="AI Tools Workshop">
+                    <h3>🤖 AI Tools Workshop</h3>
+                    <p style="margin-top: 10px;">Issued by <strong>Be10x</strong></p>
+                    <p style="margin-top: 10px;">Comprehensive workshop focusing on practical applications of various generative AI tools and technologies to boost productivity.</p>
+                </div>
+                <button class="btn" style="align-self: flex-start; margin-top: 15px;" onclick="openModal('./certificates/AI TOOLS.jpeg')">View Certificate</button>
+            </div>
+            
+            <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="./certificates/CHATGPT.jpg" alt="ChatGPT">
+                    <h3>💬 ChatGPT</h3>
+                    <p style="margin-top: 10px;">Issued by <strong>Analytics Vidhya</strong></p>
+                    <p style="margin-top: 10px;">Mastered advanced prompting techniques and utilization of ChatGPT models for analytics and workflow automation.</p>
+                </div>
+                <button class="btn" style="align-self: flex-start; margin-top: 15px;" onclick="openModal('./certificates/CHATGPT.jpg')">View Certificate</button>
+            </div>
+
+            <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="./certificates/EXEL.jpg" alt="Excel">
+                    <h3>📊 Excel</h3>
+                    <p style="margin-top: 10px;">Issued by <strong>Analytics Vidhya</strong></p>
+                    <p style="margin-top: 10px;">Gained proficiency in advanced Microsoft Excel operations, data management, and analytical functions.</p>
+                </div>
+                <button class="btn" style="align-self: flex-start; margin-top: 15px;" onclick="openModal('./certificates/EXEL.jpg')">View Certificate</button>
+            </div>
+
+            <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="./certificates/GEN AI.jpeg" alt="Gen AI">
+                    <h3>🧠 Gen AI</h3>
+                    <p style="margin-top: 10px;">Issued by <strong>Outskill</strong></p>
+                    <p style="margin-top: 10px;">Acquired deep insights into Generative Artificial Intelligence concepts, models, and real-world implementations.</p>
+                </div>
+                <button class="btn" style="align-self: flex-start; margin-top: 15px;" onclick="openModal('./certificates/GEN AI.jpeg')">View Certificate</button>
+            </div>
+
+            <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="./certificates/IOT WORKSHOP.jpg" alt="IoT Designing Concepts">
+                    <h3>🔌 IoT Designing Concepts</h3>
+                    <p style="margin-top: 10px;">Issued by <strong>RCEE (Ramachandra College of Engineering)</strong></p>
+                    <p style="margin-top: 10px;">Explored fundamental and advanced concepts in designing, building, and architecting Internet of Things systems.</p>
+                </div>
+                <button class="btn" style="align-self: flex-start; margin-top: 15px;" onclick="openModal('./certificates/IOT WORKSHOP.jpg')">View Certificate</button>
+            </div>
+
+            <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="./certificates/JAVA.jpeg" alt="Java">
+                    <h3>☕ Java</h3>
+                    <p style="margin-top: 10px;">Issued by <strong>Udemy</strong></p>
+                    <p style="margin-top: 10px;">Completed rigorous training in Java programming, focusing on core concepts, OOPs principles, and backend integration.</p>
+                </div>
+                <button class="btn" style="align-self: flex-start; margin-top: 15px;" onclick="openModal('./certificates/JAVA.jpeg')">View Certificate</button>
+            </div>
+
+            <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="./certificates/NANO BANANA.jpg" alt="Nano Banana">
+                    <h3>🍌 Nano Banana</h3>
+                    <p style="margin-top: 10px;">Issued by <strong>Analytics Vidhya</strong></p>
+                    <p style="margin-top: 10px;">Successfully completed the specialized program focusing on unique data-centric problem-solving skills.</p>
+                </div>
+                <button class="btn" style="align-self: flex-start; margin-top: 15px;" onclick="openModal('./certificates/NANO BANANA.jpg')">View Certificate</button>
+            </div>
+
+            <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="./certificates/PROJECR EXPO.jpeg" alt="Project Expo">
+                    <h3>🏆 Project Expo</h3>
+                    <p style="margin-top: 10px;">Issued by <strong>LBRCE College</strong></p>
+                    <p style="margin-top: 10px;">Showcased technical prowess and innovative thinking by presenting a real-world project at the LBRCE Project Exhibition.</p>
+                </div>
+                <button class="btn" style="align-self: flex-start; margin-top: 15px;" onclick="openModal('./certificates/PROJECR EXPO.jpeg')">View Certificate</button>
+            </div>
+
+            <div class="skill-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="./certificates/PYTHON.jpeg" alt="Python">
+                    <h3>🐍 Python</h3>
+                    <p style="margin-top: 10px;">Issued by <strong>Udemy</strong></p>
+                    <p style="margin-top: 10px;">Developed strong programming fundamentals in Python, including file handling, data structures, and automation scripting.</p>
+                </div>
+                <button class="btn" style="align-self: flex-start; margin-top: 15px;" onclick="openModal('./certificates/PYTHON.jpeg')">View Certificate</button>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact">
         <h2 class="section-title">Contact Me</h2>
@@ -745,6 +928,12 @@
             </div>
         </div>
     </section>
+
+    <!-- CERTIFICATE MODAL -->
+    <div id="certModal" class="modal" onclick="closeModal(event)">
+        <span class="modal-close" onclick="closeModal(event)">&times;</span>
+        <img class="modal-content" id="certImage">
+    </div>
 
     <!-- FOOTER -->
     <footer>
@@ -844,6 +1033,31 @@
                 canvas.height = document.querySelector('.hero').offsetHeight;
             });
         }
+        // MODAL LOGIC
+        function openModal(imageSrc) {
+            const modal = document.getElementById('certModal');
+            const modalImg = document.getElementById('certImage');
+            modalImg.src = imageSrc;
+            modal.style.display = "flex";
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+        function closeModal(e) {
+            const modal = document.getElementById('certModal');
+            if (e.target === modal || e.target.classList.contains('modal-close')) {
+                modal.classList.remove('show');
+                setTimeout(() => modal.style.display = "none", 300);
+            }
+        }
+        // ESCAPE KEY TO CLOSE MODAL
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('certModal');
+                if (modal.classList.contains('show')) {
+                    modal.classList.remove('show');
+                    setTimeout(() => modal.style.display = "none", 300);
+                }
+            }
+        });
     </script>
 </body>
 
